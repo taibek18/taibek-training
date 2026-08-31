@@ -1,6 +1,11 @@
 import Navbar from "@/components/Navbar";
 import Services from "@/components/Services";
 import Footer from "@/components/Footer";
+import Hero from "@/components/Hero";
+import Story from "@/components/Story";
+import Image from "next/image";
+import FAQ from "@/components/FAQ";
+import FinalCTA from "@/components/FinalCTA";
 
 const story = [
   {
@@ -61,173 +66,161 @@ export default function Home() {
     <main className="bg-black text-white">
       <Navbar />
 
-      <section className="relative flex min-h-screen items-center overflow-hidden px-6 pt-20">
-        <div className="absolute inset-0">
-          <div className="absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/[0.035] blur-3xl" />
-        </div>
-
-        <div className="relative mx-auto w-full max-w-7xl py-24">
-          <div className="max-w-5xl">
-            <p className="mb-8 text-xs font-semibold uppercase tracking-[0.4em] text-zinc-500">
-              Taibek Training
-            </p>
-
-            <h1 className="max-w-5xl text-5xl font-semibold leading-[0.95] tracking-[-0.04em] sm:text-7xl md:text-8xl lg:text-9xl">
-              Entrená con un plan.
-              <span className="block text-zinc-500">
-                Progresá con intención.
-              </span>
-            </h1>
-
-            <p className="mt-10 max-w-xl text-lg leading-8 text-zinc-400">
-              Entrenamiento para personas que quieren dejar de improvisar en el
-              gimnasio y empezar a entender lo que están haciendo.
-            </p>
-
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <a
-                href="#rutinas"
-                className="rounded-full bg-white px-7 py-3.5 text-center text-sm font-semibold text-black transition hover:bg-zinc-200"
-              >
-                Ver rutinas
-              </a>
-
-              <a
-                href="#asesoria"
-                className="rounded-full border border-white/20 px-7 py-3.5 text-center text-sm font-semibold transition hover:border-white"
-              >
-                Asesoría Online
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Hero />
 
       <Services />
 
+     <Story />
       <section
-        id="historia"
-        className="border-t border-white/10 bg-black px-6 py-28"
+  id="rutinas"
+  className="border-t border-white/10 bg-black px-6 py-28"
+>
+  <div className="mx-auto max-w-7xl">
+    <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:items-end">
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-zinc-500">
+          Rutinas
+        </p>
+
+        <h2 className="mt-5 text-4xl font-semibold tracking-tight md:text-6xl">
+          Entrená por tu cuenta.
+          <span className="block text-zinc-600">Pero con estructura.</span>
+        </h2>
+      </div>
+
+      <div className="lg:justify-self-end">
+        <p className="max-w-xl text-lg leading-8 text-zinc-400">
+          Elegí según la cantidad de días que realmente podés sostener. No hay
+          una frecuencia “mágica”: lo importante es que puedas progresar y
+          mantenerla.
+        </p>
+      </div>
+    </div>
+
+    <div className="mt-16 grid gap-6 lg:grid-cols-3 lg:items-stretch">
+  {routines.map((routine, index) => (
+    <article
+      key={routine.days}
+      className={`relative flex min-h-[640px] flex-col rounded-[2rem] border p-8 md:p-10 ${
+        routine.featured
+          ? "border-white bg-white text-black shadow-[0_0_50px_rgba(255,255,255,0.08)]"
+          : "border-white/10 bg-zinc-950 text-white transition duration-300 hover:border-white/25"
+      }`}
+    >
+      {/* Encabezado */}
+      <div className="flex min-h-8 items-center justify-between gap-4">
+        <span
+          className={`text-[11px] font-medium uppercase tracking-[0.25em] ${
+            routine.featured ? "text-zinc-500" : "text-zinc-600"
+          }`}
+        >
+          Opción 0{index + 1}
+        </span>
+
+        {routine.featured && (
+          <span className="shrink-0 rounded-full bg-black px-4 py-1.5 text-[9px] font-bold uppercase tracking-[0.2em] text-white">
+            Más elegido
+          </span>
+        )}
+      </div>
+
+      {/* Producto */}
+      <div className="mt-16">
+        <p
+          className={`text-[11px] font-semibold uppercase tracking-[0.3em] ${
+            routine.featured ? "text-zinc-500" : "text-zinc-600"
+          }`}
+        >
+          Rutina
+        </p>
+
+        <h3 className="mt-4 text-5xl font-semibold tracking-[-0.04em]">
+          {routine.days}
+        </h3>
+
+        <p className="mt-5 text-4xl font-semibold tracking-tight">
+          {routine.price}
+        </p>
+
+        <p
+          className={`mt-8 min-h-[84px] max-w-sm leading-7 ${
+            routine.featured ? "text-zinc-600" : "text-zinc-400"
+          }`}
+        >
+          {routine.description}
+        </p>
+      </div>
+
+      {/* Incluye */}
+      <div className="mt-10">
+        <p
+          className={`text-[10px] font-semibold uppercase tracking-[0.3em] ${
+            routine.featured ? "text-zinc-500" : "text-zinc-600"
+          }`}
+        >
+          Incluye
+        </p>
+
+        <ul
+          className={`mt-6 space-y-4 text-sm ${
+            routine.featured ? "text-zinc-700" : "text-zinc-400"
+          }`}
+        >
+          <li className="flex items-start gap-3">
+            <span>—</span>
+            <span>Ejercicios, series y repeticiones</span>
+          </li>
+
+          <li className="flex items-start gap-3">
+            <span>—</span>
+            <span>RIR e intensidad</span>
+          </li>
+
+          <li className="flex items-start gap-3">
+            <span>—</span>
+            <span>Guía de progresión</span>
+          </li>
+
+          <li className="flex items-start gap-3">
+            <span>—</span>
+            <span>Tips básicos de alimentación</span>
+          </li>
+
+          <li className="flex items-start gap-3">
+            <span>—</span>
+            <span>PDF descargable</span>
+          </li>
+        </ul>
+      </div>
+
+      {/* Botón */}
+      <div className="mt-auto pt-12">
+        <button
+          className={`w-full rounded-full px-6 py-4 text-sm font-semibold transition duration-300 ${
+            routine.featured
+              ? "bg-black text-white hover:bg-zinc-800"
+              : "bg-white text-black hover:bg-zinc-200"
+          }`}
+        >
+          Comprar rutina
+        </button>
+      </div>
+    </article>
+  ))}
+</div>
+
+    <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-8 text-sm text-zinc-500 md:flex-row md:items-center md:justify-between">
+      <p>Las rutinas no incluyen seguimiento personalizado.</p>
+
+      <a
+        href="#asesoria"
+        className="font-semibold text-zinc-300 transition hover:text-white"
       >
-        <div className="mx-auto max-w-7xl">
-          <div className="grid gap-16 lg:grid-cols-[0.8fr_1.2fr]">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-zinc-500">
-                Mi historia
-              </p>
-
-              <h2 className="mt-5 text-4xl font-semibold tracking-tight md:text-6xl">
-                No empecé siendo entrenador.
-                <span className="block text-zinc-600">
-                  Empecé volviendo al gimnasio.
-                </span>
-              </h2>
-            </div>
-
-            <div className="grid gap-px overflow-hidden rounded-3xl border border-white/10 bg-white/10 sm:grid-cols-2">
-              {story.map((item) => (
-                <div key={item.number} className="bg-zinc-950 p-8">
-                  <span className="text-xs text-zinc-600">{item.number}</span>
-
-                  <h3 className="mt-10 text-xl font-semibold">{item.title}</h3>
-
-                  <p className="mt-4 leading-7 text-zinc-400">{item.text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="rutinas"
-        className="border-t border-white/10 bg-zinc-950 px-6 py-28"
-      >
-        <div className="mx-auto max-w-7xl">
-          <div className="max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-zinc-500">
-              Rutinas
-            </p>
-
-            <h2 className="mt-5 text-4xl font-semibold tracking-tight md:text-6xl">
-              Entrená por tu cuenta.
-              <span className="block text-zinc-600">Pero con estructura.</span>
-            </h2>
-
-            <p className="mt-6 max-w-xl leading-7 text-zinc-400">
-              Elegí según la cantidad de días que realmente podés sostener.
-              Entrenar más días no significa necesariamente progresar más.
-            </p>
-          </div>
-
-          <div className="mt-16 grid gap-6 lg:grid-cols-3">
-            {routines.map((routine) => (
-              <article
-                key={routine.days}
-                className={`relative flex min-h-[470px] flex-col rounded-3xl border p-8 ${
-                  routine.featured
-                    ? "border-white bg-white text-black"
-                    : "border-white/10 bg-black"
-                }`}
-              >
-                {routine.featured && (
-                  <span className="absolute right-6 top-6 rounded-full bg-black px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
-                    Más elegido
-                  </span>
-                )}
-
-                <p
-                  className={`text-sm uppercase tracking-[0.25em] ${
-                    routine.featured ? "text-zinc-500" : "text-zinc-600"
-                  }`}
-                >
-                  Rutina
-                </p>
-
-                <h3 className="mt-12 text-4xl font-semibold">
-                  {routine.days}
-                </h3>
-
-                <p className="mt-4 text-3xl font-semibold">{routine.price}</p>
-
-                <p
-                  className={`mt-8 leading-7 ${
-                    routine.featured ? "text-zinc-600" : "text-zinc-400"
-                  }`}
-                >
-                  {routine.description}
-                </p>
-
-                <ul
-                  className={`mt-8 space-y-3 text-sm ${
-                    routine.featured ? "text-zinc-700" : "text-zinc-400"
-                  }`}
-                >
-                  <li>✓ Ejercicios, series y repeticiones</li>
-                  <li>✓ RIR e intensidad</li>
-                  <li>✓ Guía de progresión</li>
-                  <li>✓ Tips de alimentación</li>
-                  <li>✓ PDF descargable</li>
-                </ul>
-
-                <button
-                  className={`mt-auto rounded-full px-6 py-3.5 text-sm font-semibold transition ${
-                    routine.featured
-                      ? "bg-black text-white hover:bg-zinc-800"
-                      : "bg-white text-black hover:bg-zinc-200"
-                  }`}
-                >
-                  Comprar
-                </button>
-              </article>
-            ))}
-          </div>
-
-          <p className="mt-8 text-sm text-zinc-600">
-            Las rutinas no incluyen seguimiento personalizado.
-          </p>
-        </div>
-      </section>
+        ¿Querés seguimiento? Ver Asesoría Online →
+      </a>
+    </div>
+  </div>
+</section>
 
       <section
         id="asesoria"
@@ -273,36 +266,83 @@ export default function Home() {
         </div>
       </section>
 
-      <section
-        id="presencial"
-        className="border-t border-white/10 bg-zinc-950 px-6 py-28"
-      >
-        <div className="mx-auto max-w-7xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-zinc-500">
-            Entrenamiento presencial
-          </p>
+  <section
+  id="presencial"
+  className="border-t border-white/10 bg-zinc-950 px-6 py-28"
+>
+  <div className="mx-auto max-w-7xl">
+    <div className="grid gap-14 lg:grid-cols-[1fr_0.85fr] lg:items-center">
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-zinc-500">
+          Entrenamiento presencial
+        </p>
 
-          <div className="mt-6 grid gap-10 lg:grid-cols-2">
-            <h2 className="text-4xl font-semibold tracking-tight md:text-6xl">
-              Entrenamiento 1 a 1.
-              <span className="block text-zinc-600">Canning / Ezeiza.</span>
-            </h2>
+        <h2 className="mt-5 text-4xl font-semibold tracking-tight md:text-6xl">
+          Entrenamiento 1 a 1.
+          <span className="block text-zinc-600">
+            Canning / Ezeiza.
+          </span>
+        </h2>
 
-            <div>
-              <p className="max-w-xl text-lg leading-8 text-zinc-400">
-                Entrenamiento presencial en gimnasios de la zona, adaptable a
-                ubicación y disponibilidad.
-              </p>
+        <p className="mt-8 max-w-xl text-lg leading-8 text-zinc-400">
+          Sesiones presenciales para quienes quieren entrenar con supervisión,
+          mejorar ejecución y tener una planificación adaptada a su objetivo.
+        </p>
 
-              <button className="mt-8 rounded-full border border-white/20 px-7 py-3.5 text-sm font-semibold transition hover:border-white">
-                Consultar disponibilidad
-              </button>
-            </div>
+        <div className="mt-10 grid gap-4 sm:grid-cols-2">
+          <div className="rounded-2xl border border-white/10 bg-black p-6">
+            <p className="text-sm font-semibold">Supervisión técnica</p>
+            <p className="mt-3 text-sm leading-6 text-zinc-500">
+              Correcciones en vivo durante todo el entrenamiento.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-white/10 bg-black p-6">
+            <p className="text-sm font-semibold">Plan personalizado</p>
+            <p className="mt-3 text-sm leading-6 text-zinc-500">
+              Adaptado a tu nivel, objetivo y disponibilidad.
+            </p>
           </div>
         </div>
-      </section>
 
-      <Footer />
+        <a
+          href="#contacto"
+          className="mt-10 inline-flex rounded-full bg-white px-8 py-4 text-sm font-semibold text-black transition hover:bg-zinc-200"
+        >
+          Consultar disponibilidad
+        </a>
+      </div>
+
+      <div className="relative h-[650px] overflow-hidden rounded-[2rem] border border-white/10 bg-black">
+        <Image
+          src="/images/hero-legs.jpg"
+          alt="Entrenamiento presencial Taibek Training"
+          fill
+          className="object-cover object-center"
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+
+        <div className="absolute bottom-0 left-0 right-0 p-8">
+          <div className="border-t border-white/10 pt-6">
+            <p className="text-[10px] uppercase tracking-[0.28em] text-zinc-400">
+              Zona
+            </p>
+            <p className="mt-2 text-lg font-semibold">
+              Canning · Ezeiza
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <FAQ />
+
+<FinalCTA />
+
+<Footer />
     </main>
   );
 }
