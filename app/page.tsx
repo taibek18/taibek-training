@@ -6,6 +6,7 @@ import Story from "@/components/Story";
 import Image from "next/image";
 import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
+import BuyButton from "@/components/BuyButton";
 
 const story = [
   {
@@ -42,11 +43,14 @@ const story = [
 
 const routines = [
   {
+    productId: "3-dias",
     days: "3 días",
     price: "$35.000",
-    description: "Para progresar con una frecuencia eficiente y fácil de sostener.",
+    description:
+      "Para progresar con una frecuencia eficiente y fácil de sostener.",
   },
   {
+    productId: "4-dias",
     days: "4 días",
     price: "$40.000",
     description:
@@ -54,12 +58,13 @@ const routines = [
     featured: true,
   },
   {
+    productId: "5-dias",
     days: "5 días",
     price: "$45.000",
     description:
       "Para quienes disfrutan entrenar más días y pueden sostener la frecuencia.",
   },
-];
+] as const;
 
 export default function Home() {
   return (
@@ -193,18 +198,13 @@ export default function Home() {
         </ul>
       </div>
 
-      {/* Botón */}
-      <div className="mt-auto pt-12">
-        <button
-          className={`w-full rounded-full px-6 py-4 text-sm font-semibold transition duration-300 ${
-            routine.featured
-              ? "bg-black text-white hover:bg-zinc-800"
-              : "bg-white text-black hover:bg-zinc-200"
-          }`}
-        >
-          Comprar rutina
-        </button>
-      </div>
+     {/* Botón */}
+<div className="mt-auto pt-12">
+  <BuyButton
+    productId={routine.productId}
+    featured={routine.featured}
+  />
+</div>
     </article>
   ))}
 </div>
