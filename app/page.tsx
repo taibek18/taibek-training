@@ -48,6 +48,8 @@ const routines = [
     price: "$35.000",
     description:
       "Para progresar con una frecuencia eficiente y fácil de sostener.",
+   featured: false,
+      
   },
   {
     productId: "4-dias",
@@ -63,6 +65,7 @@ const routines = [
     price: "$45.000",
     description:
       "Para quienes disfrutan entrenar más días y pueden sostener la frecuencia.",
+      featured: false,
   },
 ] as const;
 
