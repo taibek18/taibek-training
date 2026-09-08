@@ -3,7 +3,13 @@
 import { useState } from "react";
 
 type BuyButtonProps = {
-  productId: "3-dias" | "4-dias" | "5-dias";
+  productId:
+    | "hombre-3-dias"
+    | "hombre-4-dias"
+    | "hombre-5-dias"
+    | "mujer-3-dias"
+    | "mujer-4-dias"
+    | "mujer-5-dias";
   featured?: boolean;
 };
 

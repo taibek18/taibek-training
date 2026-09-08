@@ -2,16 +2,28 @@ import { NextResponse } from "next/server";
 import { MercadoPagoConfig, Preference } from "mercadopago";
 
 const products = {
-  "3-dias": {
-    title: "Rutina Taibek Training - 3 días",
+  "hombre-3-dias": {
+    title: "Rutina Hombre Taibek Training - 3 días",
     price: 35000,
   },
-  "4-dias": {
-    title: "Rutina Taibek Training - 4 días",
+  "hombre-4-dias": {
+    title: "Rutina Hombre Taibek Training - 4 días",
     price: 40000,
   },
-  "5-dias": {
-    title: "Rutina Taibek Training - 5 días",
+  "hombre-5-dias": {
+    title: "Rutina Hombre Taibek Training - 5 días",
+    price: 45000,
+  },
+  "mujer-3-dias": {
+    title: "Rutina Mujer Taibek Training - 3 días",
+    price: 35000,
+  },
+  "mujer-4-dias": {
+    title: "Rutina Mujer Taibek Training - 4 días",
+    price: 40000,
+  },
+  "mujer-5-dias": {
+    title: "Rutina Mujer Taibek Training - 5 días",
     price: 45000,
   },
 };

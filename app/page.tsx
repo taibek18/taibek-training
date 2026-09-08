@@ -6,7 +6,7 @@ import Story from "@/components/Story";
 import Image from "next/image";
 import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
-import BuyButton from "@/components/BuyButton";
+import Routines from "@/components/Routines";
 
 const story = [
   {
@@ -41,33 +41,7 @@ const story = [
   },
 ];
 
-const routines = [
-  {
-    productId: "3-dias",
-    days: "3 días",
-    price: "$35.000",
-    description:
-      "Para progresar con una frecuencia eficiente y fácil de sostener.",
-   featured: false,
-      
-  },
-  {
-    productId: "4-dias",
-    days: "4 días",
-    price: "$40.000",
-    description:
-      "Mayor frecuencia y distribución del volumen semanal.",
-    featured: true,
-  },
-  {
-    productId: "5-dias",
-    days: "5 días",
-    price: "$45.000",
-    description:
-      "Para quienes disfrutan entrenar más días y pueden sostener la frecuencia.",
-      featured: false,
-  },
-] as const;
+
 
 export default function Home() {
   return (
@@ -79,151 +53,7 @@ export default function Home() {
       <Services />
 
      <Story />
-      <section
-  id="rutinas"
-  className="border-t border-white/10 bg-black px-6 py-28"
->
-  <div className="mx-auto max-w-7xl">
-    <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:items-end">
-      <div>
-        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-zinc-500">
-          Rutinas
-        </p>
-
-        <h2 className="mt-5 text-4xl font-semibold tracking-tight md:text-6xl">
-          Entrená por tu cuenta.
-          <span className="block text-zinc-600">Pero con estructura.</span>
-        </h2>
-      </div>
-
-      <div className="lg:justify-self-end">
-        <p className="max-w-xl text-lg leading-8 text-zinc-400">
-          Elegí según la cantidad de días que realmente podés sostener. No hay
-          una frecuencia “mágica”: lo importante es que puedas progresar y
-          mantenerla.
-        </p>
-      </div>
-    </div>
-
-    <div className="mt-16 grid gap-6 lg:grid-cols-3 lg:items-stretch">
-  {routines.map((routine, index) => (
-    <article
-      key={routine.days}
-      className={`relative flex min-h-[640px] flex-col rounded-[2rem] border p-8 md:p-10 ${
-        routine.featured
-          ? "border-white bg-white text-black shadow-[0_0_50px_rgba(255,255,255,0.08)]"
-          : "border-white/10 bg-zinc-950 text-white transition duration-300 hover:border-white/25"
-      }`}
-    >
-      {/* Encabezado */}
-      <div className="flex min-h-8 items-center justify-between gap-4">
-        <span
-          className={`text-[11px] font-medium uppercase tracking-[0.25em] ${
-            routine.featured ? "text-zinc-500" : "text-zinc-600"
-          }`}
-        >
-          Opción 0{index + 1}
-        </span>
-
-        {routine.featured && (
-          <span className="shrink-0 rounded-full bg-black px-4 py-1.5 text-[9px] font-bold uppercase tracking-[0.2em] text-white">
-            Más elegido
-          </span>
-        )}
-      </div>
-
-      {/* Producto */}
-      <div className="mt-16">
-        <p
-          className={`text-[11px] font-semibold uppercase tracking-[0.3em] ${
-            routine.featured ? "text-zinc-500" : "text-zinc-600"
-          }`}
-        >
-          Rutina
-        </p>
-
-        <h3 className="mt-4 text-5xl font-semibold tracking-[-0.04em]">
-          {routine.days}
-        </h3>
-
-        <p className="mt-5 text-4xl font-semibold tracking-tight">
-          {routine.price}
-        </p>
-
-        <p
-          className={`mt-8 min-h-[84px] max-w-sm leading-7 ${
-            routine.featured ? "text-zinc-600" : "text-zinc-400"
-          }`}
-        >
-          {routine.description}
-        </p>
-      </div>
-
-      {/* Incluye */}
-      <div className="mt-10">
-        <p
-          className={`text-[10px] font-semibold uppercase tracking-[0.3em] ${
-            routine.featured ? "text-zinc-500" : "text-zinc-600"
-          }`}
-        >
-          Incluye
-        </p>
-
-        <ul
-          className={`mt-6 space-y-4 text-sm ${
-            routine.featured ? "text-zinc-700" : "text-zinc-400"
-          }`}
-        >
-          <li className="flex items-start gap-3">
-            <span>—</span>
-            <span>Ejercicios, series y repeticiones</span>
-          </li>
-
-          <li className="flex items-start gap-3">
-            <span>—</span>
-            <span>RIR e intensidad</span>
-          </li>
-
-          <li className="flex items-start gap-3">
-            <span>—</span>
-            <span>Guía de progresión</span>
-          </li>
-
-          <li className="flex items-start gap-3">
-            <span>—</span>
-            <span>Tips básicos de alimentación</span>
-          </li>
-
-          <li className="flex items-start gap-3">
-            <span>—</span>
-            <span>PDF descargable</span>
-          </li>
-        </ul>
-      </div>
-
-     {/* Botón */}
-<div className="mt-auto pt-12">
-  <BuyButton
-    productId={routine.productId}
-    featured={routine.featured}
-  />
-</div>
-    </article>
-  ))}
-</div>
-
-    <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-8 text-sm text-zinc-500 md:flex-row md:items-center md:justify-between">
-      <p>Las rutinas no incluyen seguimiento personalizado.</p>
-
-      <a
-        href="#asesoria"
-        className="font-semibold text-zinc-300 transition hover:text-white"
-      >
-        ¿Querés seguimiento? Ver Asesoría Online →
-      </a>
-    </div>
-  </div>
-</section>
+      <Routines />
 
       <section
         id="asesoria"
