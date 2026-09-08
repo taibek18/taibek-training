@@ -41,7 +41,7 @@ const dataId =
     }
 
     try {
-      WebhookSignatureValidator.validate({
+        WebhookSignatureValidator.validate({
         xSignature,
         xRequestId,
         dataId,
