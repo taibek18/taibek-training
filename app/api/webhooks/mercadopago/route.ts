@@ -14,9 +14,13 @@ export async function POST(request: Request) {
     const xSignature = request.headers.get("x-signature");
     const xRequestId = request.headers.get("x-request-id");
 
-    const dataId =
-      url.searchParams.get("data.id") ||
-      url.searchParams.get("data_id");
+    const body = await request.json();
+
+const dataId =
+  url.searchParams.get("data.id") ||
+  url.searchParams.get("data_id") ||
+  body?.data?.id ||
+  body?.id;
 
     const secret = process.env.MERCADOPAGO_WEBHOOK_SECRET;
 
@@ -56,7 +60,7 @@ export async function POST(request: Request) {
       throw error;
     }
 
-    const body = await request.json();
+    
 
     const paymentId =
       body?.data?.id ||
