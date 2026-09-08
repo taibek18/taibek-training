@@ -17,7 +17,21 @@ export async function POST(request: Request) {
         { status: 200 }
       );
     }
+const isSimulation =
+  body?.live_mode === false &&
+  String(paymentId) === "123456";
 
+if (isSimulation) {
+  console.log("Simulación de webhook recibida correctamente");
+
+  return NextResponse.json(
+    {
+      received: true,
+      simulation: true,
+    },
+    { status: 200 }
+  );
+}
     const accessToken = process.env.MERCADOPAGO_ACCESS_TOKEN;
 
     if (!accessToken) {
