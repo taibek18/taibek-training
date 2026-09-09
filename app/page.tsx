@@ -8,38 +8,7 @@ import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 import Routines from "@/components/Routines";
 
-const story = [
-  {
-    number: "01",
-    title: "Volver a empezar",
-    text: "Llegó un momento en el que no estaba conforme con mi vida ni con quién era.",
-  },
-  {
-    number: "02",
-    title: "Volver al gimnasio",
-    text: "En noviembre de 2024 decidí volver a entrenar después de años sin sostener ningún deporte.",
-  },
-  {
-    number: "03",
-    title: "El golpe de realidad",
-    text: "Quise progresar demasiado rápido. Una lesión de hombro me obligó a frenar.",
-  },
-  {
-    number: "04",
-    title: "Aprender de verdad",
-    text: "Empecé a estudiar técnica, ejecución, programación y cómo responde el cuerpo al entrenamiento.",
-  },
-  {
-    number: "05",
-    title: "Empezar a enseñar",
-    text: "Otros empezaron a acercarse a preguntarme sobre ejercicios y técnica. Ahí apareció el interés por enseñar.",
-  },
-  {
-    number: "06",
-    title: "Hoy",
-    text: "Trabajo como entrenador y uso todo ese aprendizaje para ayudar a otros a entrenar con criterio.",
-  },
-];
+
 
 
 
