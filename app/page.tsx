@@ -61,9 +61,12 @@ export default function Home() {
               <li>✓ Comunicación directa</li>
             </ul>
 
-            <button className="mt-12 w-full rounded-full bg-white px-6 py-4 font-semibold text-black transition hover:bg-zinc-200">
-              Quiero mi asesoría
-            </button>
+            <a
+  href="/asesoria"
+  className="mt-12 flex w-full items-center justify-center rounded-full bg-white px-6 py-4 font-semibold text-black transition hover:bg-zinc-200"
+>
+  Quiero mi asesoría
+</a>
           </div>
         </div>
       </section>
@@ -108,11 +111,13 @@ export default function Home() {
         </div>
 
         <a
-          href="#contacto"
-          className="mt-10 inline-flex rounded-full bg-white px-8 py-4 text-sm font-semibold text-black transition hover:bg-zinc-200"
-        >
-          Consultar disponibilidad
-        </a>
+  href="https://wa.me/5491131872995?text=Hola%20Taibek%2C%20quer%C3%ADa%20consultarte%20por%20disponibilidad%20para%20entrenamiento%20presencial."
+  target="_blank"
+  rel="noopener noreferrer"
+  className="mt-10 inline-flex rounded-full bg-white px-8 py-4 text-sm font-semibold text-black transition hover:bg-zinc-200"
+>
+  Consultar disponibilidad
+</a>
       </div>
 
       <div className="relative h-[650px] overflow-hidden rounded-[2rem] border border-white/10 bg-black">
