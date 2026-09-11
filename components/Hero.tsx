@@ -60,12 +60,13 @@ export default function Hero() {
 
         <div className="relative h-[680px] overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-950 lg:h-[760px]">
           <Image
-            src="/images/hero-legs.jpg"
-            alt="Taibek entrenando"
-            fill
-            priority
-            className="object-cover object-center"
-          />
+  src="/images/hero-legs.jpg"
+  alt="Taibek entrenando"
+  fill
+  priority
+  sizes="(max-width: 1024px) 100vw, 50vw"
+  className="object-cover object-center"
+/>
 
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
 

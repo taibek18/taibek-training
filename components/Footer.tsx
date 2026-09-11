@@ -10,9 +10,25 @@ export default function Footer() {
           <p className="mt-3 max-w-md text-sm leading-6 text-zinc-500">
             Entrenamiento con estructura, intención y criterio.
           </p>
+
+          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-xs text-zinc-600">
+            <a
+              href="/privacidad"
+              className="transition hover:text-white"
+            >
+              Privacidad
+            </a>
+
+            <a
+              href="/terminos"
+              className="transition hover:text-white"
+            >
+              Términos
+            </a>
+          </div>
         </div>
 
-        <div className="text-sm text-zinc-500">
+        <div className="flex flex-col gap-3 text-sm text-zinc-500 md:items-end">
           <a
             href="https://instagram.com/taibek__"
             target="_blank"
@@ -20,6 +36,15 @@ export default function Footer() {
             className="transition hover:text-white"
           >
             Instagram @taibek__
+          </a>
+
+          <a
+            href="https://wa.me/5491131872995?text=Hola%20Taibek%2C%20quer%C3%ADa%20hacerte%20una%20consulta."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition hover:text-white"
+          >
+            WhatsApp
           </a>
         </div>
       </div>

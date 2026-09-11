@@ -11,11 +11,12 @@ export default function Story() {
           <div className="relative min-h-[720px]">
             <div className="absolute left-0 top-0 h-[620px] w-[78%] overflow-hidden rounded-[2rem] border border-white/10 bg-black">
               <Image
-                src="/images/story-back.jpg"
-                alt="Taibek Training - progreso"
-                fill
-                className="object-cover object-center"
-              />
+  src="/images/story-back.jpg"
+  alt="Taibek Training - progreso"
+  fill
+  sizes="(max-width: 1024px) 100vw, 50vw"
+  className="object-cover object-center"
+/>
             </div>
 
           <div className="absolute bottom-0 right-0 h-[390px] w-[42%] overflow-hidden rounded-[2rem] border border-white/10 bg-black shadow-2xl">

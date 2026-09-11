@@ -122,11 +122,12 @@ export default function Home() {
 
       <div className="relative h-[650px] overflow-hidden rounded-[2rem] border border-white/10 bg-black">
         <Image
-          src="/images/hero-legs.jpg"
-          alt="Entrenamiento presencial Taibek Training"
-          fill
-          className="object-cover object-center"
-        />
+  src="/images/hero-legs.jpg"
+  alt="Entrenamiento presencial Taibek Training"
+  fill
+  sizes="(max-width: 1024px) 100vw, 50vw"
+  className="object-cover object-center"
+/>
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
 
